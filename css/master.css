@@ -1,0 +1,394 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  line-height: 1.4285;
+  color: black;
+  background-color: white;
+  max-width: 100%;
+  /* overflow-x: hidden; */
+
+}
+
+html{
+  font-size: 100.5%;
+/* scroll-behavior: smooth; */
+
+}
+/* Change the background color of selected text */
+::selection {
+    background-color: #6ee2f5;
+    color: #000; /* Text color */
+}
+
+/* For Firefox */
+::-moz-selection {
+    background-color: #6ee2f5;
+    color: #000; /* Text color */
+}
+
+
+/* Top Bar */
+.top-bar {
+display: flex;
+justify-content: flex-end;
+align-items: center;
+background-color: #6ee2f5;
+position: relative;
+z-index: 1049;
+word-spacing: 13px;
+padding-right: 180px;
+}
+
+.top-bar a {
+color: black;
+text-decoration: none;
+margin-left: 10px;
+padding: 10px;
+  
+}
+
+.top-bar a :hover {
+color: red;
+}
+/* Header */
+.header {
+display: flex;
+justify-content: space-around;
+align-items: center;
+background-color: black;
+padding: 10px;
+  
+}
+
+.logo img {
+  max-height: 44px;
+  width: 180px;
+  padding-top: 0px;
+}
+
+.nav-bar ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-bar li {
+  margin-left: 20px;
+}
+
+.nav-bar a {
+  color: white;
+  text-decoration: none;
+}
+.header :hover {
+  color: rgb(196, 1, 250);
+}
+
+.Egypt :hover {
+  color: #6ee2f5;
+}
+
+/* Main Content */
+.main-content {
+  background-image: url('../imgs/bkg.jpg');
+  background-size:cover;
+  background-position: center;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  /* padding: 20px; Added padding for spacing */
+} 
+.main-content h1 {
+   font-size: 50px;
+  margin-bottom: 10px;
+}
+
+#intro{
+  font-size: 20px; 
+  text-transform: capitalize;
+}
+.Egypt{
+  font-size: 50px;
+  text-transform: capitalize;
+  animation: wave 10s ease-in-out infinite;
+  -webkit-animation: wave 10s ease-in-out infinite;
+}
+.Egypt :hover {
+  color: #6ee2f5;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+}
+  25% {
+    transform: translateY(-20px);
+    -webkit-transform: translateY(-20px);
+    -moz-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    -o-transform: translateY(-20px);
+}
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.accessories:hover {
+    color: #36f8ff;
+    word-spacing: 10px;
+    }
+    .edu:hover {
+      color: #4802fa;
+      
+      }
+      .mns:hover {
+        color: #83f2f6;
+        word-spacing: 10px;
+        }
+      
+
+      .footer {
+        background-color: black;
+        color: #6ee2f5;
+        padding: 10px;
+        margin-bottom: 10px;
+        /*padding: 20px;  Added padding for spacing */
+    }
+    
+    .footer p {
+    margin-bottom: 24px;
+    margin-top: 13px;
+    text-align: center;
+    }
+    
+    .footer-cols {
+      display: flex;
+      justify-content: space-evenly
+    }
+    
+    .footer-cols ul {
+        list-style-type: none; /* Remove bullets */
+        padding: 0;
+        margin: 0;
+    }
+    
+    .footer-cols ul li {
+        margin-bottom: 10px;
+        margin-top: 5px;
+    }
+    
+    .footer-cols ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+
+/* *::before,
+*::after {
+  box-sizing: border-box;
+} */
+
+
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+.hamburger{
+    --_size: 2rem;
+    --_lines-thickness: 0.1rem;
+    --_lines-clr: black;
+    --_ani-speed: 350ms;
+    position: relative;
+    cursor: pointer;
+    display: block;
+    width: var(--_size);
+    /* aspect-ratio:calc(1); */
+    color: transparent;
+    border: var(--_lines-thickness) solid;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+}
+.hamburger::before,
+.hamburger::after{
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: var(--_lines-thickness);
+    background-color: var(--_lines-clr);
+    border-radius: 999vw;
+    transition:         width var(--_ani-speed) ease-in-out,         translate var(--_ani-speed) ease-in-out,         rotate var(--_ani-speed) ease-in-out;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    transform-origin: 0% 25%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    -webkit-transition:         width var(--_ani-speed) ease-in-out,         translate var(--_ani-speed) ease-in-out,         rotate var(--_ani-speed) ease-in-out;
+    -moz-transition:         width var(--_ani-speed) ease-in-out,         translate var(--_ani-speed) ease-in-out,         rotate var(--_ani-speed) ease-in-out;
+    -ms-transition:         width var(--_ani-speed) ease-in-out,         translate var(--_ani-speed) ease-in-out,         rotate var(--_ani-speed) ease-in-out;
+    -o-transition:         width var(--_ani-speed) ease-in-out,         translate var(--_ani-speed) ease-in-out,         rotate var(--_ani-speed) ease-in-out;
+    /* -webkit-border-radius:;
+    -moz-border-radius:;
+    -ms-border-radius:;
+    -o-border-radius:; */
+}
+
+.hamburger::before{
+    --_rotate: -45deg;
+    translate: 0 calc(var(--_lines-thickness) * -1.25)
+}
+.hamburger::after{
+    --_rotate: 45deg;
+    translate: 0 calc(var(--_lines-thickness) * 1.25)
+}
+/* checked lines */
+.hamburger:has( :checked)::before,
+.hamburger:has( :checked)::after{
+    width: 90%;
+    translate: 0;
+    rotate: var(--_rotate);
+}
+/* hover NOT checked*/
+.hamburger:not(:has( :checked)):hover::before,
+.hamburger:not(:has( :checked)):hover::after{
+    width: 20%;
+    translate: 0;
+    rotate: 0deg;
+}
+/* hover - checked 
+.hamburger:has( :checked):hover::before,
+.hamburger:has( :checked):hover::after{
+    width: 75%;
+    translate: 0;
+    rotate: 0deg;
+} */
+
+
+/*Menu Container */
+.menu-container {
+  position: relative;
+}
+
+
+.hamburger-icon::before {
+  top: -8px;
+  left: 0;
+}
+
+.hamburger-icon::after {
+  top: 8px;
+  left: 0;
+}
+
+Checked lines
+#nav-toggle:checked ~ .menu-container .menu-bar {
+  display: block;
+}
+
+#nav-toggle:checked ~ .menu-container .hamburger-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+#nav-toggle:checked ~ .menu-container .hamburger-icon::after {
+  transform: rotate(-45deg);
+  top: 0;
+} 
+
+
+/* Menu List */
+.menu-bar {
+  display: none;
+  background-color: white;
+  position: absolute;
+  top: 2.5rem; /* Adjust based on your needs */
+  right: 2rem; /* Adjust based on your needs */
+  width: 200px; /* Adjust based on your needs */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 1050;
+}
+
+.menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 10px;  
+}
+
+.menu-list li {
+  padding: 10px 0;
+  list-style: none;
+  word-spacing: 2px;
+}
+.menu-list li:hover{
+  color:red;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-link:hover {
+  color: red;
+}
+
+
+
+/* Search Bar */
+.search-bar {
+  background-color: #f2f2f2;
+  padding: 10px;
+  padding-left: 150px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px; /* Adjust margin as needed */
+}
+
+.search-bar input[type="text"] {
+  padding: 10px;
+  border: none;
+  width: 80%;
+  margin-right: 10px;
+}
+
+.search-bar button {
+  padding: 10px;
+  background-color: #6ee2f5;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+}
+
+.search-bar button:hover {
+  background-color: red;
+}
