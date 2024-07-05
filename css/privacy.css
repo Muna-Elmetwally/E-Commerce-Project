@@ -1,0 +1,173 @@
+/* Global Styles */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f7f9fc;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+  
+  h2, h3 {
+    font-weight: 300;
+  }
+  
+  a {
+    color: #0067b8;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Navigation Styles */
+  .main-nav {
+    background: #333;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
+  
+  .main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .main-nav ul li {
+    margin: 0 15px;
+  }
+  
+  .main-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  .main-nav ul li a:hover {
+    background: #0067b8;
+    color: #fff;
+    border-radius: 5px;
+  }
+  
+  /* Privacy Section Styles */
+  #privacy {
+    background-color: #fff;
+    padding: 40px 20px;
+    margin: 40px auto;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  #privacy:hover {
+    transform: scale(1.01);
+  }
+  
+  #privacy::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+    z-index: -1;
+    clip-path: circle(70% at 50% 50%);
+    transition: clip-path 0.6s ease;
+  }
+  
+  #privacy:hover::before {
+    clip-path: circle(100%);
+  }
+  
+  #privacy .content {
+    padding: 20px 40px;
+    color: #333;
+  }
+  
+  #privacy h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0067b8;
+    font-size: 36px;
+    animation: fadeIn 1s ease-in-out;
+    font-weight: bolder;
+  }
+  
+  #privacy h3 {
+    margin-top: 30px;
+    color: #333;
+    font-size: 24px;
+    position: relative;
+  }
+  
+  #privacy h3::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #0067b8;
+    margin: 10px 0;
+    animation: slideIn 0.5s ease-in-out;
+  }
+  
+  #privacy p, #privacy ul {
+    margin: 15px 0;
+    font-size: 16px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+  
+  #privacy ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  #privacy ul li {
+    margin: 5px 0;
+  }
+  
+  @media (max-width: 768px) {
+    #privacy .content {
+      padding: 20px;
+    }
+  
+    #privacy h2 {
+      font-size: 30px;
+    }
+  
+    #privacy h3 {
+      font-size: 20px;
+    }
+  
+    #privacy p, #privacy ul li {
+      font-size: 14px;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      width: 0;
+    }
+    to {
+      width: 50px;
+    }
+  }
+  
