@@ -5,14 +5,14 @@ ALX project
 Welcome to Al-Ostaz Mobile Store, your one-stop solution for mobile accessories and all mobile nneds, consultations, maintenance services, and training courses on mobile maintenance. Explore our wide range of products and services designed to cater to all your mobile needs.
 Al-Ostaz Mobile Store not just a mobile store, you can choose whatever you need whenever you need.
 
- #screenshot of the website:
+ ## screenshot of the website:
 ![image](https://github.com/Muna-Elmetwally/E-Commerce-Project/assets/141143414/8efbd2be-0042-4847-b8bb-ebc9264811bb)
 
-#linkedin accounts: 
+## linkedin accounts: 
 Ramy Al-serogy/   https://www.linkedin.com/in/ramy-mohamed2023/
 Muna Elmetwally/  https://www.linkedin.com/in/mona-elmetwally-05a6571a6
 
-#Installation
+# Installation
 To get a local copy up and running, follow these steps:
 
 1- Clone the repository:
@@ -23,7 +23,7 @@ cd al-ostaz-mobile-store
 
 3- Open index.html in your browser to view the project.
 
-#Usage
+# Usage
 Browse through the products on the shop page.
 Add products to your cart and view the updated cart count and the checkout process.
 feedback
@@ -34,7 +34,7 @@ try contact us
 Navigate through the various sections for services and training courses.
 try sign-up and log in page
 
-#Contributing
+# Contributing
 We welcome contributions to improve our project. Please follow these steps:
 #Fork the repository.
 Create a new branch (git checkout -b feature-branch).
@@ -43,16 +43,16 @@ Push to the branch (git push origin feature-branch).
 Open a Pull Request.
 
 
-Related Projects
+# Related Projects
 Here are a few related projects:
 Mobile Store API
 Mobile Maintenance Courses
 
-Licensing
+# Licensing
 This project is licensed under the MIT License. See the LICENSE file for more information.
 MIT License
 
-Copyright (c) [Year] [Your Name or Your Organization]
+# Copyright (c) [Year] [Your Name or Your Organization]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -72,17 +72,17 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-#© 2024 Al-Ostaz | الأستاذ | Not Just a Mobile Store. All rights reserved.
+## © 2024 Al-Ostaz | الأستاذ | Not Just a Mobile Store. All rights reserved.
 
-##Story of How Our Project Was Inspired:
+## Story of How Our Project Was Inspired:
 Our project was inspired by the need for a comprehensive mobile store offering maintenance services, accessories and all mobile needs, courses and training for that field. A store that can provide all of these services online with unique expertise.
 Most of mobile store are not unique enough and provide the same service so what if we enable the user to get 5-stars service in a one place that provide all services that are related to mobile phones technology with good prices and professional and organized usage .
 Personal experiences with mobile device issues and the lack of a one-stop solution motivated us to create Al-Ostaz Mobile Store.
 It’s not just a mobile store it will be a great educational source and maybe a platform in the future that will assist people to find their passion easily.
 We will also provide a chatbot in the future to provide more assistance and dark mode.
 
-##Built With
-Technologies Used:
+## Built With
+# Technologies Used:
 Frontend Technologies
 HTML: Structure of the whole web pages (10 web pages).
 CSS: Styling and, animation and transitions, layout, ensuring responsiveness and the hover method, import fonts and images.
@@ -130,7 +130,6 @@ Schema structure for products and users, managing data relationships.
 Authentication:
 JWT (JSON Web Tokens): SJWT (JSON Web Tokens) for secure user authentication and session management.
 
-
 Architecture Used
 Schema Structure:
 Product Schema: Fields for name, description, price, image, category.
@@ -151,6 +150,6 @@ User interacts with the frontend.
 Frontend communicates with backend APIs. Backend processes data and interacts with the database.
 Data is sent back to the frontend and displayed to the user.
 
-Additional Tools:
+# Additional Tools:
 GitHub: Version control and collaboration and deploying
 VS Code: Primary code editor.
