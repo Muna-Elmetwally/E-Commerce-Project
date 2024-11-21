@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Al-Ostaz mobile store</title>
+    <link rel="stylesheet" href="../css/shop.css">
+</head>
+<body>
+    <div id="website">
+        <header class="store" >
+            <div class="logo">
+                <img src="../imgs/al-ostaz--high-resolution-logo-transparent .png" alt="">
+            </div>
+            <h1 >Al-Ostaz Mobile Store</h1>
+        </header> 
+        <div class="grid">
+            <div class="col-sx">
+                <div class="products">
+                    <h2>Products</h2>
+                    <ul class="products-list">
+                        <li v-for="(prod, index) in products" :key="prod.id" class="product">
+                            <div class="box">
+                                <div class="image">
+                                    <img :src="prod.image" :alt="prod.title">
+                                    <h3 class="title">{{ prod.title }}</h3>
+                                    <p class="price">{{ prod.price | currency }}</p>
+                                    <p class="description">{{ prod.description }}</p>
+                                    <button @click="addItem(prod)">Add to Cart</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-dx">
+                <div class="cart">
+                    <h2>Your Cart</h2>
+                    <table class="cart-list" v-if="cart.length">
+                        <thead>
+                            <tr>
+                                <th class="head-image">Image</th>
+                                <th class="head-title">Product</th>
+                                <th class="head-price">Price</th>
+                                <th class="head-quantity">Quantity</th>
+                                <th class="head-total">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(item, id) in cart" :key="'cart-' + id" class="cart-item">
+                                <td><img :src="item.image" :alt="item.title"></td>
+                                <td><h4 class="title">{{ item.title }}</h4></td>
+                                <td><p class="price">{{ item.price | currency }}</p></td>
+                                <td>
+                                    <div class="quantity">
+                                        {{ item.quantity }}
+                                        <span class="qty-handler">
+                                            <span @click="add(item)">+</span>
+                                            <span @click="sub(item)">-</span>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td><p class="total">{{ (item.price * item.quantity) | currency }}</p></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th colspan="4"><h4 class="total-title">Total</h4></th>
+                                <th><p>{{ total | currency }}</p></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="empty-contents" v-else>
+                        <div class="draw">
+                            <div class="cactus">
+                                <div class="arm"></div>
+                                <div class="arm"></div>
+                            </div>
+                            <div class="cactus">
+                                <div class="arm"></div>
+                                <div class="arm"></div>
+                            </div>
+                            <div class="cactus">
+                                <div class="arm"></div>
+                                <div class="arm"></div>
+                            </div>
+                            <div class="sky">
+                                <div class="montain"></div>
+                                <div class="montain two"></div>
+                                <div class="sun"></div>
+                            </div>
+                        </div>
+                        <p class="no-items-text">Your cart is currently empty.</p>
+                    </div>
+                </div>
+                <!-- Checkout Button (conditionally displayed) -->
+                <div v-if="cart.length > 0" class="checkout">
+                    <button class="checkout-btn" @click="checkout">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        Vue.filter('currency', function (value) {
+            return ' EGP ' + value.toFixed(2);
+        });
+
+        new Vue({
+            el: '#website',
+            data: {
+                websiteTitle: 'Al-Ostaz mobile store',
+                products: [
+                    { id: 1,
+                        title: 'Wireless airpods', 
+                        price: 4000, 
+                        description: 'Wireless Earbuds Bluetooth V5.3 Headphones 50H Playback Deep Bass Stereo Ear Buds with LED Power Display Charging Case IPX7 Waterproof Earphones with Mic Headset for Laptop Pad Android/iOS Phones',
+                        image: "../imgs/61s0mVebELL.__AC_SX300_SY300_QL70_FMwebp_.webp" },
+                    { id: 2, 
+                        title: 'Wireless Headphones', 
+                        price: 2000, 
+                        description: 'BERIBES Bluetooth Headphones Over Ear, 65H Playtime and 6 EQ Music Modes Wireless Headphones with Microphone, HiFi Stereo Foldable Lightweight Headset, Deep Bass for Home Office Cellphone PC Ect', 
+                        image: "../imgs/71F2ccIPPLL._AC_UY327_FMwebp_QL65_.webp" },
+                    { id: 3, 
+                        title: 'Memory Card', 
+                        price: 250, 
+                        description: '    Amazon Basics Micro SDXC Memory Card with Full Size Adapter, A2, U3, Read Speed up to 100 MB/s, 128 gb, Black',
+                        image: "../imgs/61DwejyTGkL._AC_SX466_.jpg" },
+                    { id: 4, 
+                        title: 'Iphone Charger', 
+                        price: 800, 
+                        description: '    Phone Charger, 2 Pack 20W PD USB C Wall Fast Charger Adapter with 2 Pack 6FT Type C to Lightning Cable Compatible for iPhone 14 13 12 11 Pro Max XR XS X,iPad',
+                        image: "../imgs/51vqYPmotDL._AC_UY327_FMwebp_QL65_.webp" },
+                    { id: 5, 
+                        title: 'Apple AirPods', 
+                        price: 8000, 
+                        description: 'Apple AirPods (2nd Generation) Wireless Ear Buds, Bluetooth Headphones with Lightning Charging Case Included, Over 24 Hours of Battery Life, Effortless Setup for iPhone',
+                        image: "../imgs/7120GgUKj3L._AC_SX522_.jpg"  },
+                    { id: 6, 
+                        title: 'Apple Watch', 
+                        price: 35000, 
+                        description: 'Apple Watch Series 7 (GPS + Cellular, 41MM) - Gold Stainless Steel Case with Dark Cherry Sport Band (Renewed Premium)',
+                        image: "../imgs/71iU6Kxnv6L._AC_SX466_.jpg" },
+                    { id: 7, 
+                        title: 'Screen Protector', 
+                        price: 112, 
+                        description: 'ZAGG InvisibleShield Glass Elite iPhone 15 Pro Screen Protector - 5X Stronger with Reinforced Edges, Scratch & Smudge-Resistant Surface, Easy to Install, Clear',
+                        image: "../imgs/61J8HL+O4tL._AC_SX679_.jpg" },
+                    { id: 8, 
+                        title: 'Blue Basic Case', 
+                        price: 150, 
+                        description: 'Miracase Designed for iPhone 13 Pro Max Case with Screen Protector,[Soft Anti-Scratch Microfiber Lining],Shockproof Liquid Silicone Rubber Phone Case Cover 6.7 inch(Mediterranean Blue)',
+                        image: "../imgs/619HHgoUl7L._AC_SX679_.jpg" },
+                 ],
+                cart: [],
+                total: 0
+            },
+            methods: {
+                addItem(prod) {
+                    this.total += prod.price;
+
+                    let inCart = false;
+                    for (let i = 0; i < this.cart.length; i++) {
+                        if (this.cart[i].id === prod.id) {
+                            inCart = true;
+                            this.cart[i].quantity++;
+                            break;
+                        }
+                    }
+                    if (!inCart) {
+                        this.cart.push({
+                            id: prod.id,
+                            title: prod.title,
+                            price: prod.price,
+                            quantity: 1,
+                            description: prod.description,
+                            image: prod.image
+                        });
+                    }
+                },
+                add(item) {
+                    this.total += item.price;
+                    item.quantity++;
+                },
+                sub(item) {
+                    this.total -= item.price;
+                    if (item.quantity > 1) {
+                        item.quantity--;
+                    } else {
+                        for (let i = 0; i < this.cart.length; i++) {
+                            if (this.cart[i].id === item.id) {
+                                this.cart.splice(i, 1);
+                                break;
+                            }
+                        }
+                    }
+                },
+                checkout() {
+                    // Handle checkout logic here
+                    alert('Proceeding to checkout...');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

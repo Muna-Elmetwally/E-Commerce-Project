@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Form</title>
+  <link rel="stylesheet" href="../css/feedback.css">
+</head>
+<body>
+
+<div class="feedback-container">
+  <h2>Feedback</h2>
+  <form id="feedbackForm" onsubmit="showThankYou(event)">
+    <textarea id="feedback" placeholder="Please provide your feedback..."></textarea>
+    <button type="submit" class="btn">Submit</button>
+  </form>
+</div>
+
+<script>
+  function showThankYou(event) {
+    event.preventDefault();
+    alert('Thanks for your feedback');
+    document.getElementById('feedbackForm').reset();
+  }
+</script>
+
+</body>
+</html>

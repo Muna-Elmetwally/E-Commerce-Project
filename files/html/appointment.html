@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Request Form</title>
+    <style>
+        /* General reset and styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: "";
+            background-image: url('../imgs/pexels-padrinan-343457.jpg');
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        .container h2 {
+            text-align: center;
+            color: #12cbdc;
+            margin-bottom: 30px;
+            font-size: 32px;
+            position: relative;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="tel"]:focus,
+        .form-group textarea:focus {
+            border-color: #12cbdc;
+        }
+
+        .form-group input[type="checkbox"],
+        .form-group input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .form-group-half {
+            width: 48%;
+            float: left;
+        }
+
+        .form-group-half + .form-group-half {
+            float: right;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .form-footer {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #99ca81;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .form-footer button {
+            background-color: #12cbdc;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+            position: relative;
+        }
+
+        .form-footer button:hover {
+            background-color: red;
+            transform: scale(1.05);
+        }
+
+        .section-title {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 80%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal h2 {
+            margin-top: 0;
+        }
+
+        .modal ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .modal ul li {
+            margin-bottom: 10px;
+        }
+
+        .modal button {
+            background-color: #12cbdc;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .modal button:hover {
+            background-color: red;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>An Appointment Form</h2>
+        <form id="appointmentForm" novalidate>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="form-group">
+                <label for="mobile-type">Mobile type and issue:</label>
+                <textarea id="mobile-type" name="mobile-type" placeholder="برجاء كتابة نوع الموبيل والعيب"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="notes">Special notes, concerns, or requirements:</label>
+                <textarea id="notes" name="notes" rows="5" placeholder="Enter any special notes"></textarea>
+            </div>
+            <div class="clearfix">
+                <div class="form-group-half">
+                    <h4 class="section-title">Days of the week you are available for appointment:</h4>
+                    <label><input type="checkbox" name="days[]" value="Monday" > Monday</label><br>
+                    <label><input type="checkbox" name="days[]" value="Tuesday"> Tuesday</label><br>
+                    <label><input type="checkbox" name="days[]" value="Wednesday"> Wednesday</label><br>
+                    <label><input type="checkbox" name="days[]" value="Thursday"> Thursday</label><br>
+                    <label><input type="checkbox" name="days[]" value="Friday"> Friday</label><br>
+                </div>
+                <div class="form-group-half">
+                    <h4 class="section-title">Best way to reach you?</h4>
+                    <label><input type="radio" name="contact-method" value="Phone" autofocus checked> Phone</label><br>
+                    <label><input type="radio" name="contact-method" value="Email"> Email</label><br><br>
+                    <h4 class="section-title">Best time of day for your appointment:</h4>
+                    <label><input type="checkbox" name="time[]" value="Morning"> Morning</label><br>
+                    <label><input type="checkbox" name="time[]" value="Afternoon"> Afternoon</label>
+                </div>
+            </div>
+            <div class="form-footer">
+                <button type="submit">Request My Appointment</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <h2>Your appointment has been confirmed successfully!</h2>
+            <p>Here are the details you provided:</p>
+            <ul id="appointmentDetails"></ul>
+            <button onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+            var mobileType = document.getElementById('mobile-type').value;
+            var notes = document.getElementById('notes').value;
+
+            var contactMethod = document.querySelector('input[name="contact-method"]:checked');
+            var days = document.querySelectorAll('input[name="days[]"]:checked');
+            var time = document.querySelectorAll('input[name="time[]"]:checked');
+            
+            var appointmentDetails = document.getElementById('appointmentDetails');
+            appointmentDetails.innerHTML = `
+                <li><strong>Name:</strong> ${name}</li>
+                <li><strong>Email:</strong> ${email}</li>
+                <li><strong>Phone:</strong> ${phone}</li>
+                <li><strong>Mobile Type and Issue:</strong> ${mobileType}</li>
+                <li><strong>Best Way to Reach You:</strong> ${contactMethod ? contactMethod.value : 'Not specified'}</li>
+                <li><strong>Available Days:</strong> ${Array.from(days).map(day => day.value).join(', ')}</li>
+                <li><strong>Best Time of Day:</strong> ${Array.from(time).map(t => t.value).join(', ')}</li>
+            `;
+
+            document.getElementById('confirmationModal').style.display = 'flex';
+        });
+
+        function closeModal() {
+            document.getElementById('confirmationModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
