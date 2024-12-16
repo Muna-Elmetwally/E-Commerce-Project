@@ -3,7 +3,7 @@
 ALX project 
 
 # Introduction
-Welcome to Al-Ostaz Mobile Store, your one-stop solution for mobile accessories and all mobile nneds, consultations, maintenance services, and training courses on mobile maintenance. Explore our wide range of products and services designed to cater to all your mobile needs.
+Welcome to Al-Ostaz Mobile Store, your one-stop solution for mobile accessories and all mobile needs, consultations, maintenance services, and training courses on mobile maintenance. Explore our wide range of products and services designed to cater to all your mobile needs.
 Al-Ostaz Mobile Store not just a mobile store, you can choose whatever you need whenever you need.
 
  ## screenshot of the website:
